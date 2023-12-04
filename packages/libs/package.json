@@ -8,8 +8,27 @@
     "test": "echo 'Add test script here'",
     "lint": "echo 'Add lint script here'"
   },
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "require": "./dist/index.js"
+    },
+    "./src": "./src",
+    "./dist": "./dist"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^14.0.2",
     "@repo/eslint-config": "*",
-    "@repo/typescript-config": "*"
+    "@repo/typescript-config": "*",
+    "@types/eslint": "^8.44.7",
+    "@types/node": "^17.0.12",
+    "@types/react": "^18.0.22",
+    "@types/react-dom": "^18.0.7",
+    "eslint": "^8.53.0",
+    "typescript": "^5.2.2"
   }
 }
