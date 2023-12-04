@@ -11,7 +11,7 @@
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
     "prettier": "^3.1.0",
-    "turbo": "latest"
+    "turbo": "^1.10.16"
   },
   "engines": {
     "node": ">=18"
@@ -20,5 +20,9 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "@mantine/core": "^7.3.0",
+    "@mantine/hooks": "^7.3.0"
+  }
 }
