@@ -1,4 +1,4 @@
-import { EditorPage } from "@repo/components";
+import { EditorPage } from "@repo/layout";
 
 const page = () => <EditorPage />;
 export default page;

@@ -1,5 +1,5 @@
 {
-  "name": "@repo/components",
+  "name": "@repo/layout",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@craftjs/core": "^0.2.3",
+    "@repo/libs": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

@@ -22,8 +22,10 @@
     "packages/*"
   ],
   "dependencies": {
+    "@heroicons/react": "^2.0.18",
     "@mantine/core": "^7.3.0",
     "@mantine/hooks": "^7.3.0",
+    "sass": "^1.69.5",
     "styled-components": "^6.1.1"
   }
 }
