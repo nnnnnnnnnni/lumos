@@ -1,4 +1,4 @@
-import { UserComponent, useNode } from "@craftjs/core";
+import { UserComponent, useNode, Element } from "@craftjs/core";
 import { Box as _Box } from "../../../../../../libs/src/Basic";
 
 export const Box: UserComponent<{}> = () => {
@@ -7,5 +7,10 @@ export const Box: UserComponent<{}> = () => {
   } = useNode((node) => ({
     selected: node.events.selected,
   }));
-  return <_Box ref={(ref) => ref && connect(drag(ref))} />;
+
+  return <_Box ref={(ref) => ref && connect(drag(ref))}>
+    <Element is="div" canvas id="Box-Container"> 
+
+    </Element>
+  </_Box>;
 };

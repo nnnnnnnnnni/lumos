@@ -5,12 +5,6 @@ import {
   WindowIcon,
 } from "@heroicons/react/24/outline";
 import {
-  Banner,
-  LinkButton,
-  ApplyButton,
-  InfoCard,
-  ShareCard,
-  StepsCard,
   Text,
   Box,
   Section,
@@ -20,17 +14,11 @@ import {
 import { ReactNode } from "react";
 
 export const componentList = {
-  ShareCard,
   Section,
-  Banner,
   Box,
   Text,
   Video,
   Image,
-  InfoCard,
-  StepsCard,
-  LinkButton,
-  ApplyButton,
 };
 
 export type componentGroupProps = {
@@ -70,51 +58,6 @@ export const componentGroup: componentGroupProps[] = [
         name: "Image",
         icon: <RectangleGroupIcon width={20} />,
         component: Image,
-      },
-    ],
-  },
-  {
-    name: "Banner",
-    group: [
-      {
-        name: "Banner",
-        icon: <ViewColumnsIcon width={20} />,
-        component: Banner,
-      },
-    ],
-  },
-  {
-    name: "Button",
-    group: [
-      {
-        name: "Link Button",
-        icon: <StopIcon width={20} />,
-        component: LinkButton,
-      },
-      {
-        name: "Apply Button",
-        icon: <StopIcon width={20} />,
-        component: ApplyButton,
-      },
-    ],
-  },
-  {
-    name: "Card",
-    group: [
-      {
-        name: "Info Card",
-        icon: <WindowIcon width={20} />,
-        component: InfoCard,
-      },
-      {
-        name: "Share Card",
-        icon: <WindowIcon width={20} />,
-        component: ShareCard,
-      },
-      {
-        name: "Steps Card",
-        icon: <WindowIcon width={20} />,
-        component: StepsCard,
       },
     ],
   },
