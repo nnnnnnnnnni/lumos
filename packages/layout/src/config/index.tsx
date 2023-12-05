@@ -4,10 +4,19 @@ import {
   ViewColumnsIcon,
   WindowIcon,
 } from "@heroicons/react/24/outline";
-import { Banner } from "../components/injects/Banner";
-import { LinkButton, ApplyButton } from "../components/injects/Button";
-import { InfoCard, ShareCard, StepsCard } from "../components/injects/Card";
-import { Text, Box, Section, Video, Image } from "../components/injects/Basic";
+import {
+  Banner,
+  LinkButton,
+  ApplyButton,
+  InfoCard,
+  ShareCard,
+  StepsCard,
+  Text,
+  Box,
+  Section,
+  Video,
+  Image,
+} from "../components/injects";
 import { ReactNode } from "react";
 
 export const componentList = {
