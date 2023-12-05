@@ -1,9 +1,9 @@
 import { Box, Flex } from "@mantine/core";
 
-export const TreeLayer = () => {
+export const HistoryList = () => {
   return (
     <Flex align={'center'} justify={'center'} direction={'column'} h={'100%'}>
-      <Box>TreeLayer</Box>
+      <Box>HistoryList</Box>
       <Box>Coming soon</Box>
     </Flex>
   );

@@ -1,2 +1,5 @@
-export * from './main';
-export * from './settings';
+export * from "./Box";
+export * from "./Image";
+export * from "./Section";
+export * from "./Text";
+export * from "./Video";

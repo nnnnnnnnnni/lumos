@@ -1,5 +1,5 @@
 import { useEditor } from "@craftjs/core";
-import { Box, Tabs } from "@mantine/core";
+import { Tabs } from "@mantine/core";
 import { useState } from "react";
 import classes from "../../styles.module.scss";
 import {
@@ -8,6 +8,9 @@ import {
   CircleStackIcon,
 } from "@heroicons/react/24/outline";
 import { WrapperContainer } from "../WrapperContainer";
+import { StyleSettings } from "./StyleSettings";
+import { DataSettings } from "./DataSettings";
+import { HistoryList } from "./HistoryList";
 
 export const Sidebar = () => {
   const [layersVisible, setLayerVisible] = useState(true);
@@ -37,13 +40,13 @@ export const Sidebar = () => {
         </Tabs.List>
 
         <Tabs.Panel value="tabStyle">
-          <Box p={"sm"}>123</Box>
+          <StyleSettings />
         </Tabs.Panel>
         <Tabs.Panel value="tabData">
-          <Box p={"sm"}>123</Box>
+          <DataSettings />
         </Tabs.Panel>
         <Tabs.Panel value="tabHistory">
-          <Box p={"sm"}>123</Box>
+          <HistoryList />
         </Tabs.Panel>
       </Tabs>
     </WrapperContainer>

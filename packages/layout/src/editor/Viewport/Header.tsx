@@ -1,6 +1,5 @@
 import { useEditor } from "@craftjs/core";
-import styled from "styled-components";
-import { Box, Button, Flex, Tooltip } from "@mantine/core";
+import { Button, Flex, Tooltip } from "@mantine/core";
 import {
   ArrowUturnLeftIcon,
   ArrowUturnRightIcon,

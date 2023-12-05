@@ -1,5 +1,5 @@
 import { useEditor } from "@craftjs/core";
-import { Box, Tabs } from "@mantine/core";
+import { Tabs } from "@mantine/core";
 import classes from "../../styles.module.scss";
 import { ListBulletIcon, Squares2X2Icon } from "@heroicons/react/24/outline";
 import { ComponentList } from "./ComponentList";

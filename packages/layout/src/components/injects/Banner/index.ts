@@ -1,2 +1,3 @@
-export * from './main';
-export * from './settings';
+export * from './BannerCommon';
+export * from './BannerWithVideoBg';
+export * from './BannerWithoutKV';

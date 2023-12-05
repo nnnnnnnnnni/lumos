@@ -8,7 +8,7 @@ import { componentList } from "../../config";
 export const EditorPage = () => {
   return (
     <Flex w={'100vw'} h={'100vh'}>
-      <Editor resolver={{...componentList}} enabled={false} onRender={RenderNode}>
+      <Editor resolver={{...componentList}} onRender={RenderNode}>
         <Viewport>
           <Frame>
             <Element
@@ -24,9 +24,18 @@ export const EditorPage = () => {
               }}
             >
               <componentList.ApplyButton />
-              <componentList.ApplyButton />
-              <componentList.ApplyButton />
-              <componentList.ApplyButton />
+              <componentList.LinkButton />
+              <componentList.BannerCommon />
+              <componentList.BannerWithVideoBg />
+              <componentList.BannerWithoutKV />
+              <componentList.InfoCard />
+              <componentList.ShareCard />
+              <componentList.StepsCard />
+              <componentList.Text />
+              <componentList.Image />
+              <componentList.Section />
+              <componentList.Box />
+              <componentList.Video />
             </Element>
           </Frame>
         </Viewport>

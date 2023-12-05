@@ -1,2 +1,3 @@
-export * from './main';
-export * from './settings';
+export * from './InfoCard';
+export * from './ShareCard';
+export * from './StepsCard';

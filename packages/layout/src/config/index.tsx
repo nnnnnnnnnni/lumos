@@ -30,7 +30,7 @@ export const componentList = {
   Image,
 };
 
-export type ComponentGroupProps = {
+export type componentGroupProps = {
   name: string;
   group: {
     name: string;
@@ -39,7 +39,7 @@ export type ComponentGroupProps = {
   }[];
 };
 
-export const componentGroup = [
+export const componentGroup: componentGroupProps[] = [
   {
     name: "Basic",
     group: [

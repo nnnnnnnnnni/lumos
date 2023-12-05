@@ -1,2 +1,2 @@
-export * from './main';
-export * from './settings';
+export * from './AppluButton';
+export * from './LinkButton';

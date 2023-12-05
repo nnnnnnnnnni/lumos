@@ -1,10 +1,10 @@
 import { useEditor } from "@craftjs/core";
 import { Accordion, Badge, Box, Flex, Grid, Text } from "@mantine/core";
-import { ComponentGroupProps, componentGroup } from "../../../config";
+import { componentGroupProps, componentGroup } from "../../../config";
 import { FC } from "react";
 import { HoverContainer } from "../../../components/common";
 
-const ComponentGroup: FC<{ group: ComponentGroupProps["group"] }> = ({
+const ComponentGroup: FC<{ group: componentGroupProps["group"] }> = ({
   group,
 }) => {
   const {
@@ -18,17 +18,19 @@ const ComponentGroup: FC<{ group: ComponentGroupProps["group"] }> = ({
       {group.map((Cmp) => {
         return (
           <Grid.Col span={{ base: 6 }} key={Cmp.name}>
-            <HoverContainer bg="#fafafa" p={'sm'}  ref={(ref: any) => ref && create(ref, <Cmp.component />)}>
+            <HoverContainer bg="#fafafa" p={'sm'} h={'100%'}  ref={(ref: any) => ref && create(ref, <Cmp.component />)}>
               <Flex
                 justify={"center"}
                 align={"center"}
                 direction={"column"}
                 style={{ cursor: "pointer" }}
+                w={"100%"}
+                h={"100%"}
               >
                 <Box>{Cmp.icon}</Box>
-                <Text fz={"xs"} ta={"center"}>
+                <Flex fz={"xs"} ta={"center"} justify={'center'} align={'center'} style={{flex: 1}}>
                   {Cmp.name}
-                </Text>
+                </Flex>
               </Flex>
             </HoverContainer>
           </Grid.Col>
