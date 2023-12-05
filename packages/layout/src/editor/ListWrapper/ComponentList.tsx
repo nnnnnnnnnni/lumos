@@ -1,14 +1,13 @@
 import { useEditor } from "@craftjs/core";
 import { Accordion, Badge, Box, Flex, Grid, Text } from "@mantine/core";
-import { componentGroupProps, componentGroup } from "../../../config";
+import { componentGroupProps, componentGroup } from "../../config";
 import { FC } from "react";
-import { HoverContainer } from "../../../components/common";
+import { HoverContainer } from "../../components/common";
 
 const ComponentGroup: FC<{ group: componentGroupProps["group"] }> = ({
   group,
 }) => {
   const {
-    enabled,
     connectors: { create },
   } = useEditor((state) => ({
     enabled: state.options.enabled,
@@ -42,7 +41,7 @@ const ComponentGroup: FC<{ group: componentGroupProps["group"] }> = ({
 
 export const ComponentList = () => {
   return (
-    <Accordion defaultValue="Banner">
+    <Accordion defaultValue="Basic">
       {componentGroup.map((component) => {
         return (
           <Accordion.Item key={component.name} value={component.name}>

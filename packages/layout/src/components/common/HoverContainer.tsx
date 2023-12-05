@@ -12,3 +12,22 @@ export const HoverContainer = styled<any>(Box)`
     background-color: rgba(0, 0, 0, 0.1) !important;
   }
 `;
+
+import { forwardRef } from "react";
+
+export const Test1 = forwardRef<HTMLDivElement, {}>((props, ref) => {
+  return (
+    <div {...props} ref={ref}>
+      Test1
+    </div>
+  );
+});
+
+
+export const Test2 = forwardRef<HTMLDivElement, {}>((props, ref) => {
+  return (
+    <div {...props} ref={ref}>
+      Test2
+    </div>
+  );
+});

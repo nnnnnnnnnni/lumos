@@ -2,8 +2,8 @@ import { useEditor } from "@craftjs/core";
 import React, { useEffect } from "react";
 import styled from "styled-components";
 
-import { Sidebar } from "./DataWrapper";
-import { ListWrapper } from "./ListWrapper";
+import { Sidebar } from "../DataWrapper";
+import { ListWrapper } from "../ListWrapper";
 import { Header } from "./Header";
 import { Flex } from "@mantine/core";
 

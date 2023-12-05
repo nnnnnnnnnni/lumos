@@ -1,13 +1,13 @@
 import { useEditor } from "@craftjs/core";
 import { Tabs } from "@mantine/core";
 import { useState } from "react";
-import classes from "../../styles.module.scss";
+import classes from "../styles.module.scss";
 import {
   Bars4Icon,
   BeakerIcon,
   CircleStackIcon,
 } from "@heroicons/react/24/outline";
-import { WrapperContainer } from "../WrapperContainer";
+import { WrapperContainer } from "../Viewport/WrapperContainer";
 import { StyleSettings } from "./StyleSettings";
 import { DataSettings } from "./DataSettings";
 import { HistoryList } from "./HistoryList";

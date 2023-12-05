@@ -4,30 +4,24 @@ import {
   ViewColumnsIcon,
   WindowIcon,
 } from "@heroicons/react/24/outline";
-import {
-  BannerCommon,
-  BannerWithVideoBg,
-  BannerWithoutKV,
-} from "../components/injects/Banner";
+import { Banner } from "../components/injects/Banner";
 import { LinkButton, ApplyButton } from "../components/injects/Button";
 import { InfoCard, ShareCard, StepsCard } from "../components/injects/Card";
 import { Text, Box, Section, Video, Image } from "../components/injects/Basic";
 import { ReactNode } from "react";
 
 export const componentList = {
-  BannerCommon,
-  BannerWithVideoBg,
-  BannerWithoutKV,
-  LinkButton,
-  ApplyButton,
-  InfoCard,
   ShareCard,
-  StepsCard,
-  Text,
-  Box,
   Section,
+  Banner,
+  Box,
+  Text,
   Video,
   Image,
+  InfoCard,
+  StepsCard,
+  LinkButton,
+  ApplyButton,
 };
 
 export type componentGroupProps = {
@@ -74,19 +68,9 @@ export const componentGroup: componentGroupProps[] = [
     name: "Banner",
     group: [
       {
-        name: "Common",
+        name: "Banner",
         icon: <ViewColumnsIcon width={20} />,
-        component: BannerCommon,
-      },
-      {
-        name: "with Video Background",
-        icon: <ViewColumnsIcon width={20} />,
-        component: BannerWithVideoBg,
-      },
-      {
-        name: "without KV",
-        icon: <ViewColumnsIcon width={20} />,
-        component: BannerWithoutKV,
+        component: Banner,
       },
     ],
   },

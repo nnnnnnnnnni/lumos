@@ -1,2 +1,2 @@
-export * from './AppluButton';
+export * from './ApplyButton';
 export * from './LinkButton';

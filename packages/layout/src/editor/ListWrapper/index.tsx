@@ -1,10 +1,10 @@
 import { useEditor } from "@craftjs/core";
 import { Tabs } from "@mantine/core";
-import classes from "../../styles.module.scss";
+import classes from "../styles.module.scss";
 import { ListBulletIcon, Squares2X2Icon } from "@heroicons/react/24/outline";
 import { ComponentList } from "./ComponentList";
 import { TreeLayer } from "./TreeLayer";
-import { WrapperContainer } from "../WrapperContainer";
+import { WrapperContainer } from "../Viewport/WrapperContainer";
 
 export const ListWrapper = () => {
   const {
