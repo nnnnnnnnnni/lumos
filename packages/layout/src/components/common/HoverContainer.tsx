@@ -8,6 +8,7 @@ export const HoverContainer = styled<any>(Box)`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   &:hover {
     background-color: rgba(0, 0, 0, 0.1) !important;
   }

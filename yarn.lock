@@ -520,6 +520,14 @@
   dependencies:
     tslib "^2.4.0"
 
+"@types/backbone@^1.4.15":
+  version "1.4.18"
+  resolved "https://jfrog.infra.ww5sawfyut0k.bitsvc.io/artifactory/api/npm/frontend-npm-central-virtual/@types/backbone/-/backbone-1.4.18.tgz#654ce79d8a343b12c0d5b6a2ce3dd8423996c767"
+  integrity sha512-/qo5+GegJsBPrvHnKLf6dhfe9sazHB/usPGv1vMii1nHkLIe/2aT/ArLc3/dabKd1a0VzDgdJhoaTdeextWl8Q==
+  dependencies:
+    "@types/jquery" "*"
+    "@types/underscore" "*"
+
 "@types/eslint@^8.44.7":
   version "8.44.7"
   resolved "https://jfrog.infra.ww5sawfyut0k.bitsvc.io/artifactory/api/npm/frontend-npm-central-virtual/@types/eslint/-/eslint-8.44.7.tgz#430b3cc96db70c81f405e6a08aebdb13869198f5"
@@ -532,6 +540,13 @@
   version "1.0.5"
   resolved "https://jfrog.infra.ww5sawfyut0k.bitsvc.io/artifactory/api/npm/frontend-npm-central-virtual/@types/estree/-/estree-1.0.5.tgz#a6ce3e556e00fd9895dd872dd172ad0d4bd687f4"
   integrity sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==
+
+"@types/jquery@*":
+  version "3.5.29"
+  resolved "https://jfrog.infra.ww5sawfyut0k.bitsvc.io/artifactory/api/npm/frontend-npm-central-virtual/@types/jquery/-/jquery-3.5.29.tgz#3c06a1f519cd5fc3a7a108971436c00685b5dcea"
+  integrity sha512-oXQQC9X9MOPRrMhPHHOsXqeQDnWeCDT3PelUIg/Oy8FAbzSZtFHRjc7IpbfFVmpLtJ+UOoywpRsuO5Jxjybyeg==
+  dependencies:
+    "@types/sizzle" "*"
 
 "@types/json-schema@*", "@types/json-schema@^7.0.12", "@types/json-schema@^7.0.9":
   version "7.0.15"
@@ -584,10 +599,20 @@
   resolved "https://jfrog.infra.ww5sawfyut0k.bitsvc.io/artifactory/api/npm/frontend-npm-central-virtual/@types/semver/-/semver-7.5.6.tgz#c65b2bfce1bec346582c07724e3f8c1017a20339"
   integrity sha512-dn1l8LaMea/IjDoHNd9J52uBbInB796CDffS6VdIxvqYCPSG0V0DzHp76GpaWnlhg88uYyPbXCDIowa86ybd5A==
 
+"@types/sizzle@*":
+  version "2.3.8"
+  resolved "https://jfrog.infra.ww5sawfyut0k.bitsvc.io/artifactory/api/npm/frontend-npm-central-virtual/@types/sizzle/-/sizzle-2.3.8.tgz#518609aefb797da19bf222feb199e8f653ff7627"
+  integrity sha512-0vWLNK2D5MT9dg0iOo8GlKguPAU02QjmZitPEsXRuJXU/OGIOt9vT9Fc26wtYuavLxtO45v9PGleoL9Z0k1LHg==
+
 "@types/stylis@^4.0.2":
   version "4.2.4"
   resolved "https://jfrog.infra.ww5sawfyut0k.bitsvc.io/artifactory/api/npm/frontend-npm-central-virtual/@types/stylis/-/stylis-4.2.4.tgz#14b61f022e832d87d442ae1795e0f0f0b7daa879"
   integrity sha512-36ZrGJ8fgtBr6nwNnuJ9jXIj+bn/pF6UoqmrQT7+Y99+tFFeHHsoR54+194dHdyhPjgbeoNz3Qru0oRt0l6ASQ==
+
+"@types/underscore@*":
+  version "1.11.15"
+  resolved "https://jfrog.infra.ww5sawfyut0k.bitsvc.io/artifactory/api/npm/frontend-npm-central-virtual/@types/underscore/-/underscore-1.11.15.tgz#29c776daecf6f1935da9adda17509686bf979947"
+  integrity sha512-HP38xE+GuWGlbSRq9WrZkousaQ7dragtZCruBVMi0oX1migFZavZ3OROKHSkNp/9ouq82zrWtZpg18jFnVN96g==
 
 "@typescript-eslint/eslint-plugin@^6.11.0", "@typescript-eslint/eslint-plugin@^6.5.0":
   version "6.13.1"
@@ -926,6 +951,28 @@ axobject-query@^3.2.1:
   dependencies:
     dequal "^2.0.3"
 
+backbone-undo@^0.2.5:
+  version "0.2.6"
+  resolved "https://jfrog.infra.ww5sawfyut0k.bitsvc.io/artifactory/api/npm/frontend-npm-central-virtual/backbone-undo/-/backbone-undo-0.2.6.tgz#00c4d78ab2425c18a76f2a96a1eee181560a5d8d"
+  integrity sha512-AsfpNiljLXlk7TcffDUu3EAUq7CxWbyTNwARWrql5XTzN4vh6WzEEBZYaKK4kTTz+iW1tSzqUooaGRIwO83kWA==
+  dependencies:
+    backbone ">=1.0.0"
+    underscore ">=1.4.4"
+
+backbone@1.4.1:
+  version "1.4.1"
+  resolved "https://jfrog.infra.ww5sawfyut0k.bitsvc.io/artifactory/api/npm/frontend-npm-central-virtual/backbone/-/backbone-1.4.1.tgz#099a78184bc07b034048a8332229c2ccca1e3e62"
+  integrity sha512-ADy1ztN074YkWbHi8ojJVFe3vAanO/lrzMGZWUClIP7oDD/Pjy2vrASraUP+2EVCfIiTtCW4FChVow01XneivA==
+  dependencies:
+    underscore ">=1.8.3"
+
+backbone@>=1.0.0:
+  version "1.5.0"
+  resolved "https://jfrog.infra.ww5sawfyut0k.bitsvc.io/artifactory/api/npm/frontend-npm-central-virtual/backbone/-/backbone-1.5.0.tgz#3f20e4c6feb22f896131bcc58eb599b9555e8744"
+  integrity sha512-RPKlstw5NW+rD2X4PnEnvgLhslRnXOugXw2iBloHkPMgOxvakP1/A+tZIGM3qCm8uvZeEf8zMm0uvcK1JwL+IA==
+  dependencies:
+    underscore ">=1.8.3"
+
 balanced-match@^1.0.0:
   version "1.0.2"
   resolved "https://jfrog.infra.ww5sawfyut0k.bitsvc.io/artifactory/api/npm/frontend-npm-central-virtual/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"
@@ -1074,6 +1121,16 @@ clsx@2.0.0:
   version "2.0.0"
   resolved "https://jfrog.infra.ww5sawfyut0k.bitsvc.io/artifactory/api/npm/frontend-npm-central-virtual/clsx/-/clsx-2.0.0.tgz#12658f3fd98fafe62075595a5c30e43d18f3d00b"
   integrity sha512-rQ1+kcj+ttHG0MKVGBUXwayCCF1oh39BF5COIpRzuCEv8Mwjv0XucrI2ExNTOn9IlLifGClWQcU9BrZORvtw6Q==
+
+codemirror-formatting@^1.0.0:
+  version "1.0.0"
+  resolved "https://jfrog.infra.ww5sawfyut0k.bitsvc.io/artifactory/api/npm/frontend-npm-central-virtual/codemirror-formatting/-/codemirror-formatting-1.0.0.tgz#879cc1fdd9018343c1d5511769ce5360d705ebf2"
+  integrity sha512-br9yM6eJI3pJHekEnoyHaBEb1B7XxxDjju+vRyBe8QGLp5saTIXXkZ+eFCTqXSAtI8QEZDFVEX2/SOjH2sVWRQ==
+
+codemirror@^5.63.0:
+  version "5.65.16"
+  resolved "https://jfrog.infra.ww5sawfyut0k.bitsvc.io/artifactory/api/npm/frontend-npm-central-virtual/codemirror/-/codemirror-5.65.16.tgz#efc0661be6bf4988a6a1c2fe6893294638cdb334"
+  integrity sha512-br21LjYmSlVL0vFCPWPfhzUCT34FM/pAdK7rRIZwa0rrtrIdotvP4Oh4GUHsu2E3IrQMCfRkL/fN3ytMNxVQvg==
 
 color-convert@^1.9.0:
   version "1.9.3"
@@ -1968,6 +2025,19 @@ graceful-fs@^4.1.2, graceful-fs@^4.2.4:
   resolved "https://jfrog.infra.ww5sawfyut0k.bitsvc.io/artifactory/api/npm/frontend-npm-central-virtual/graceful-fs/-/graceful-fs-4.2.11.tgz#4183e4e8bf08bb6e05bbb2f7d2e0c8f712ca40e3"
   integrity sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==
 
+grapesjs@^0.21.7:
+  version "0.21.7"
+  resolved "https://jfrog.infra.ww5sawfyut0k.bitsvc.io/artifactory/api/npm/frontend-npm-central-virtual/grapesjs/-/grapesjs-0.21.7.tgz#341721402ac433afc914e6f4e1d3931d5c1a9d81"
+  integrity sha512-XSUIPD8M2bOsrqtKar8I2jpWOITmVXiq0+OMVD0NhBOjsI0s7Vm6tzvyY6hY2uSObDiy+qQg4EfdcHUPjnP1zg==
+  dependencies:
+    "@types/backbone" "^1.4.15"
+    backbone "1.4.1"
+    backbone-undo "^0.2.5"
+    codemirror "^5.63.0"
+    codemirror-formatting "^1.0.0"
+    promise-polyfill "^8.1.3"
+    underscore "^1.13.1"
+
 graphemer@^1.4.0:
   version "1.4.0"
   resolved "https://jfrog.infra.ww5sawfyut0k.bitsvc.io/artifactory/api/npm/frontend-npm-central-virtual/graphemer/-/graphemer-1.4.0.tgz#fb2f1d55e0e3a1849aeffc90c4fa0dd53a0e66c6"
@@ -2861,6 +2931,11 @@ prettier@^3.1.0:
   resolved "https://jfrog.infra.ww5sawfyut0k.bitsvc.io/artifactory/api/npm/frontend-npm-central-virtual/prettier/-/prettier-3.1.0.tgz#c6d16474a5f764ea1a4a373c593b779697744d5e"
   integrity sha512-TQLvXjq5IAibjh8EpBIkNKxO749UEWABoiIZehEPiY4GNpVdhaFKqSTu+QrlU6D2dPAfubRmtJTi4K4YkQ5eXw==
 
+promise-polyfill@^8.1.3:
+  version "8.3.0"
+  resolved "https://jfrog.infra.ww5sawfyut0k.bitsvc.io/artifactory/api/npm/frontend-npm-central-virtual/promise-polyfill/-/promise-polyfill-8.3.0.tgz#9284810268138d103807b11f4e23d5e945a4db63"
+  integrity sha512-H5oELycFml5yto/atYqmjyigJoAo3+OXwolYiH7OfQuYlAqhxNvTfiNMbV9hsC6Yp83yE5r2KTVmtrG6R9i6Pg==
+
 prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://jfrog.infra.ww5sawfyut0k.bitsvc.io/artifactory/api/npm/frontend-npm-central-virtual/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
@@ -3557,6 +3632,11 @@ unbox-primitive@^1.0.2:
     has-bigints "^1.0.2"
     has-symbols "^1.0.3"
     which-boxed-primitive "^1.0.2"
+
+underscore@>=1.4.4, underscore@>=1.8.3, underscore@^1.13.1:
+  version "1.13.6"
+  resolved "https://jfrog.infra.ww5sawfyut0k.bitsvc.io/artifactory/api/npm/frontend-npm-central-virtual/underscore/-/underscore-1.13.6.tgz#04786a1f589dc6c09f761fc5f45b89e935136441"
+  integrity sha512-+A5Sja4HP1M08MaXya7p5LvjuM7K6q/2EaC0+iovj/wOcMsTzMvDFbasi/oSapiwOlt252IqsKqPjCl7huKS0A==
 
 untildify@^4.0.0:
   version "4.0.0"

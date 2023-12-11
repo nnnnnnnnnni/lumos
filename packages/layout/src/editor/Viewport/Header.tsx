@@ -1,5 +1,5 @@
 import { useEditor } from "@craftjs/core";
-import { Button, Flex, Tooltip } from "@mantine/core";
+import { Box, Button, Flex, Tooltip } from "@mantine/core";
 import {
   ArrowUturnLeftIcon,
   ArrowUturnRightIcon,
@@ -7,6 +7,11 @@ import {
   PencilIcon,
 } from "@heroicons/react/20/solid";
 import { HoverContainer } from "../../components/common";
+import {
+  ComputerDesktopIcon,
+  DevicePhoneMobileIcon,
+  DeviceTabletIcon,
+} from "@heroicons/react/24/outline";
 
 export const Header = () => {
   const { enabled, canUndo, canRedo, actions } = useEditor((state, query) => ({
@@ -25,7 +30,7 @@ export const Header = () => {
       justify={"space-between"}
     >
       {enabled ? (
-        <Flex gap={'sm'}>
+        <Flex gap={"sm"} w={"200px"}>
           <Tooltip label="Undo" position="bottom">
             <HoverContainer
               style={{
@@ -34,7 +39,7 @@ export const Header = () => {
               }}
               onClick={() => actions.history.undo()}
             >
-              <ArrowUturnLeftIcon width={14}  />
+              <ArrowUturnLeftIcon width={14} />
             </HoverContainer>
           </Tooltip>
           <Tooltip label="Redo" position="bottom">
@@ -45,24 +50,42 @@ export const Header = () => {
               }}
               onClick={() => actions.history.redo()}
             >
-              <ArrowUturnRightIcon width={14}  />
+              <ArrowUturnRightIcon width={14} />
             </HoverContainer>
           </Tooltip>
         </Flex>
       ) : (
-        <div />
+        <Box w={"200px"} />
       )}
-      <Button
-        size="xs"
-        onClick={() => {
-          actions.setOptions((options) => (options.enabled = !enabled));
-        }}
-        variant="filled"
-        color={enabled ? "green" : undefined}
+      <Flex
+        columnGap={"sm"}
+        justify={"center"}
+        align={"center"}
+        style={{ flex: 1 }}
       >
-        {enabled ? <CheckIcon width={16} /> : <PencilIcon width={16} />}
-        {enabled ? "View Current" : "Edit"}
-      </Button>
+        <HoverContainer>
+          <ComputerDesktopIcon width={16} />
+        </HoverContainer>
+        <HoverContainer>
+          <DeviceTabletIcon width={16} />
+        </HoverContainer>
+        <HoverContainer>
+          <DevicePhoneMobileIcon width={16} />
+        </HoverContainer>
+      </Flex>
+      <Flex w={"200px"} justify={'flex-end'}>
+        <Button
+          size="xs"
+          onClick={() => {
+            actions.setOptions((options) => (options.enabled = !enabled));
+          }}
+          variant="filled"
+          color={enabled ? "green" : undefined}
+        >
+          {enabled ? <CheckIcon width={16} /> : <PencilIcon width={16} />}
+          {enabled ? "View Current" : "Edit"}
+        </Button>
+      </Flex>
     </Flex>
   );
 };

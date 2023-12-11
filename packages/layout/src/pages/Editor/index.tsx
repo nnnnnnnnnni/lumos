@@ -3,7 +3,7 @@ import { Editor, Frame, Element, useEditor } from "@craftjs/core";
 import { Viewport } from "../../editor/Viewport";
 import { Flex } from "@mantine/core";
 import { componentList } from "../../config";
-import { useMemo } from "react";
+import { Fragment, useMemo } from "react";
 
 const EditableArea = () => {
   const { query } = useEditor();
@@ -38,7 +38,7 @@ export const EditorPage = () => {
   return (
     <Flex w={"100vw"} h={"100vh"}>
       {/* <Editor resolver={{...componentList}} onRender={RenderNode}> */}
-      <Editor resolver={{ ...componentList }}>
+      <Editor resolver={{ ...componentList, Fragment }}>
         <EditableArea />
       </Editor>
     </Flex>

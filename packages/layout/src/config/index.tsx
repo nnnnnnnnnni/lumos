@@ -1,17 +1,7 @@
-import {
-  RectangleGroupIcon,
-  StopIcon,
-  ViewColumnsIcon,
-  WindowIcon,
-} from "@heroicons/react/24/outline";
-import {
-  Text,
-  Box,
-  Section,
-  Video,
-  Image,
-} from "../components/injects";
+import { RectangleGroupIcon } from "@heroicons/react/24/outline";
+import { Text, Box, Section, Video, Image } from "../components/injects";
 import { ReactNode } from "react";
+import { UserComponent } from "@craftjs/core";
 
 export const componentList = {
   Section,
@@ -26,7 +16,7 @@ export type componentGroupProps = {
   group: {
     name: string;
     icon?: ReactNode;
-    component: any;
+    component: UserComponent;
   }[];
 };
 
