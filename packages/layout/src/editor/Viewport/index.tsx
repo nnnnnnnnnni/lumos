@@ -2,11 +2,12 @@ import { useEditor } from "@craftjs/core";
 import React, { useEffect } from "react";
 import styled from "styled-components";
 
-import { Sidebar } from "../DataWrapper";
-import { ListWrapper } from "../ListWrapper";
+import { Sidebar } from "../DataSider";
+import { ListWrapper } from "../ToolList";
 import { Header } from "./Header";
 import { Flex } from "@mantine/core";
-import { useEditorContainer } from "../widthContext";
+import { useEditorContainer } from "../WidthContext";
+import { getPX } from "../../../../libs/src/config";
 
 const RenderContainer = styled.div<{ $enabled: boolean, $width?: string | number }>`
   flex: 1;
@@ -54,17 +55,18 @@ export const Viewport: React.FC<{ children?: React.ReactNode }> = ({
     >
       <ListWrapper />
       <Flex
-        style={{ flex: 1 }}
+        style={{ flex: 1, border: '1px solid #f7f7f7', borderTop: 'none', borderBottom: 'none' }}
         h={"100%"}
         direction={"column"}
         className="page-container"
+        
       >
         <Header />
         <RenderContainer
           $enabled={enabled}
           className="craftjs-renderer"
           id="app-container"
-          $width={width}
+          $width={getPX(width)}
         >
           {children}
         </RenderContainer>

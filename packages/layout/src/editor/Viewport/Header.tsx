@@ -6,7 +6,7 @@ import {
   CheckIcon,
   PencilIcon,
 } from "@heroicons/react/20/solid";
-import { HoverContainer } from "../../components/common";
+import { HoverContainer, HoverContainerWithActiveBackground } from "../../components/common";
 import {
   ComputerDesktopIcon,
   DevicePhoneMobileIcon,
@@ -14,7 +14,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { useCallback } from "react";
 import { DEFAULT_SCREEN_MOBILE, DEFAULT_SCREEN_TABLET, getPX } from "../../../../libs/src/config";
-import { useEditorContainer } from "../widthContext";
+import { useEditorContainer } from "../WidthContext";
 
 export const Header = () => {
   const { width, setWidth } = useEditorContainer();
@@ -26,17 +26,13 @@ export const Header = () => {
     })
   );
 
-  // actions?.setProp('ROOT', (prop) => {
-  //   prop.enabled = enabled;
-  // })
-
   const handleSwitch = useCallback((mode: number) => {
     if(mode === 1) {
       setWidth("100%");
     } else if(mode === 2) {
-      setWidth(getPX(DEFAULT_SCREEN_TABLET));
+      setWidth(DEFAULT_SCREEN_TABLET);
     } else {
-      setWidth(getPX(DEFAULT_SCREEN_MOBILE));
+      setWidth(DEFAULT_SCREEN_MOBILE);
     }
   }, []);
 
@@ -83,15 +79,15 @@ export const Header = () => {
         align={"center"}
         style={{ flex: 1 }}
       >
-        <HoverContainer onClick={() => handleSwitch(1)}>
+        <HoverContainerWithActiveBackground onClick={() => handleSwitch(1)} $isActive={width === '100%'}>
           <ComputerDesktopIcon width={16} />
-        </HoverContainer>
-        <HoverContainer onClick={() => handleSwitch(2)}>
+        </HoverContainerWithActiveBackground>
+        <HoverContainerWithActiveBackground onClick={() => handleSwitch(2)} $isActive={width === DEFAULT_SCREEN_TABLET}>
           <DeviceTabletIcon width={16} />
-        </HoverContainer>
-        <HoverContainer onClick={() => handleSwitch(3)}>
+        </HoverContainerWithActiveBackground>
+        <HoverContainerWithActiveBackground onClick={() => handleSwitch(3)} $isActive={width === DEFAULT_SCREEN_MOBILE}>
           <DevicePhoneMobileIcon width={16} />
-        </HoverContainer>
+        </HoverContainerWithActiveBackground>
       </Flex>
       <Flex w={"200px"} justify={"flex-end"}>
         <Button

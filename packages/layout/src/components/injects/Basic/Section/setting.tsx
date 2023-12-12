@@ -4,7 +4,7 @@ import {
   DEFAULT_SCREEN_DESKTOP,
   getPX,
 } from "../../../../../../libs/src/config";
-import { ComponentSettings } from "../../../../editor/ComponentSettings";
+import { ComponentSettings } from "../../../../editor/Settings";
 
 export const craftProps: UserComponent<SectionProps>["craft"] = {
   // A user-friendly name for the User Component. The value here will be used to set the node.data.displayName property.

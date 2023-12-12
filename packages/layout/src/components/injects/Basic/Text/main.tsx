@@ -2,7 +2,7 @@ import { UserComponent, useNode } from "@craftjs/core";
 import { TextProps, Text as _Text } from "../../../../../../libs/src/Basic";
 import { craftProps } from "./setting";
 import styled from "styled-components";
-import { mediaStylesProps } from "../../../../editor/ComponentSettings/type";
+import { mediaStylesProps } from "../../../../editor/Settings/type";
 import { CSSProperties } from "react";
 import { DEFAULT_SCREEN_DESKTOP, DEFAULT_SCREEN_MOBILE, DEFAULT_SCREEN_TABLET } from "../../../../../../libs/src/config";
 

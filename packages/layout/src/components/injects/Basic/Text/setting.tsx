@@ -1,6 +1,6 @@
 import { UserComponent } from "@craftjs/core";
 import { TextProps } from "../../../../../../libs/src/Basic";
-import { ComponentSettings } from "../../../../editor/ComponentSettings";
+import { ComponentSettings } from "../../../../editor/Settings";
 
 export const craftProps: UserComponent<TextProps>["craft"] = {
   // A user-friendly name for the User Component. The value here will be used to set the node.data.displayName property.

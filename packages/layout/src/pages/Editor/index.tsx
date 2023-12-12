@@ -4,7 +4,7 @@ import { Viewport } from "../../editor/Viewport";
 import { Flex } from "@mantine/core";
 import { componentList } from "../../config";
 import { Fragment, useMemo } from "react";
-import { EditorContainerProvier } from "../../editor/widthContext";
+import { EditorContainerProvier } from "../../editor/WidthContext";
 
 const EditableArea = () => {
   const { query } = useEditor();

@@ -4,7 +4,7 @@ export const getPX = (value: number | string) => {
   }
   if (
     typeof value === "string" &&
-    (value.includes("px") || value.includes("rem") || value.includes("em"))
+    (value.includes("px") || value.includes("rem") || value.includes("em") || value.includes("vw") || value.includes("vh") || value.includes("%"))
   ) {
     return value;
   }

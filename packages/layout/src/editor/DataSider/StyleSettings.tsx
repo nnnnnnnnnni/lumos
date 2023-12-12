@@ -1,7 +1,7 @@
 import { useEditor } from "@craftjs/core";
 import { Text, Flex, Box } from "@mantine/core";
 import { FC, PropsWithChildren, createElement } from "react";
-import { ComponentSettings } from "../ComponentSettings";
+import { ComponentSettings } from "../Settings";
 
 const Tip: FC<PropsWithChildren<{ text?: string }>> = ({ text, children }) => {
   return (
