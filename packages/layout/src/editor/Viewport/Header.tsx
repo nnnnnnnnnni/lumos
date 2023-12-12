@@ -1,4 +1,4 @@
-import { useEditor } from "@craftjs/core";
+import { useEditor, useNode } from "@craftjs/core";
 import { Box, Button, Flex, Tooltip } from "@mantine/core";
 import {
   ArrowUturnLeftIcon,
@@ -12,13 +12,33 @@ import {
   DevicePhoneMobileIcon,
   DeviceTabletIcon,
 } from "@heroicons/react/24/outline";
+import { useCallback } from "react";
+import { DEFAULT_SCREEN_MOBILE, DEFAULT_SCREEN_TABLET, getPX } from "../../../../libs/src/config";
+import { useEditorContainer } from "../widthContext";
 
 export const Header = () => {
-  const { enabled, canUndo, canRedo, actions } = useEditor((state, query) => ({
-    enabled: state.options.enabled,
-    canUndo: query.history.canUndo(),
-    canRedo: query.history.canRedo(),
-  }));
+  const { width, setWidth } = useEditorContainer();
+  const { enabled, canUndo, canRedo, actions } = useEditor(
+    (state, query) => ({
+      enabled: state.options.enabled,
+      canUndo: query.history.canUndo(),
+      canRedo: query.history.canRedo(),
+    })
+  );
+
+  // actions?.setProp('ROOT', (prop) => {
+  //   prop.enabled = enabled;
+  // })
+
+  const handleSwitch = useCallback((mode: number) => {
+    if(mode === 1) {
+      setWidth("100%");
+    } else if(mode === 2) {
+      setWidth(getPX(DEFAULT_SCREEN_TABLET));
+    } else {
+      setWidth(getPX(DEFAULT_SCREEN_MOBILE));
+    }
+  }, []);
 
   return (
     <Flex
@@ -63,17 +83,17 @@ export const Header = () => {
         align={"center"}
         style={{ flex: 1 }}
       >
-        <HoverContainer>
+        <HoverContainer onClick={() => handleSwitch(1)}>
           <ComputerDesktopIcon width={16} />
         </HoverContainer>
-        <HoverContainer>
+        <HoverContainer onClick={() => handleSwitch(2)}>
           <DeviceTabletIcon width={16} />
         </HoverContainer>
-        <HoverContainer>
+        <HoverContainer onClick={() => handleSwitch(3)}>
           <DevicePhoneMobileIcon width={16} />
         </HoverContainer>
       </Flex>
-      <Flex w={"200px"} justify={'flex-end'}>
+      <Flex w={"200px"} justify={"flex-end"}>
         <Button
           size="xs"
           onClick={() => {

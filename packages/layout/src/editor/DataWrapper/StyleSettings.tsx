@@ -1,6 +1,7 @@
 import { useEditor } from "@craftjs/core";
-import { Text, Flex } from "@mantine/core";
+import { Text, Flex, Box } from "@mantine/core";
 import { FC, PropsWithChildren, createElement } from "react";
+import { ComponentSettings } from "../ComponentSettings";
 
 const Tip: FC<PropsWithChildren<{ text?: string }>> = ({ text, children }) => {
   return (
@@ -37,12 +38,12 @@ export const StyleSettings = () => {
   });
 
   return (
-    <>
+    <Box>
       {active ? (
         <>
-          {related?.setting ? (
+          {related?.settings ? (
             // createElement(related.setting, {settings: custom.settings})
-            <related.setting custom={custom} />
+            <related.settings custom={custom} />
           ) : (
             <Tip>This Component can't custom setting</Tip>
           )}
@@ -50,6 +51,7 @@ export const StyleSettings = () => {
       ) : (
         <Tip>Click on a component to start editing.</Tip>
       )}
-    </>
+      
+    </Box>
   );
 };

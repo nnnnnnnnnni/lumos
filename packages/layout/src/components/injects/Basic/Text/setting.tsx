@@ -1,22 +1,17 @@
 import { UserComponent } from "@craftjs/core";
-import { SectionProps } from "../../../../../../libs/src/Basic";
-import {
-  DEFAULT_SCREEN_DESKTOP,
-  getPX,
-} from "../../../../../../libs/src/config";
+import { TextProps } from "../../../../../../libs/src/Basic";
 import { ComponentSettings } from "../../../../editor/ComponentSettings";
 
-export const craftProps: UserComponent<SectionProps>["craft"] = {
+export const craftProps: UserComponent<TextProps>["craft"] = {
   // A user-friendly name for the User Component. The value here will be used to set the node.data.displayName property.
   displayName: "lumos-Section",
   // Specify default values for the props T
   props: {
-    containerWidth: getPX(DEFAULT_SCREEN_DESKTOP),
     style: {},
   },
   //A map of React Components to share the same Node context. This components will be able access the useNode hook
   related: {
-    settings: () => <ComponentSettings />,
+    settings: () => <ComponentSettings needBasicStyles />,
   },
   rules: {
     canDrag(node, helpers) {

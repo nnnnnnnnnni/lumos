@@ -16,6 +16,7 @@
   "dependencies": {
     "@craftjs/core": "^0.2.3",
     "@repo/libs": "*",
+    "@repo/utils": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

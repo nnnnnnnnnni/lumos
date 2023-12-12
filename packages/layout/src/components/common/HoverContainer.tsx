@@ -1,7 +1,8 @@
 import { Box } from "@mantine/core";
+import { HTMLAttributes } from "react";
 import styled from "styled-components";
 
-export const HoverContainer = styled<any>(Box)`
+export const HoverContainer = styled.div`
   padding: 6px;
   border-radius: 5px;
   transition: 0.2s ease-in-out;
