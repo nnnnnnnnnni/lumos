@@ -10,11 +10,13 @@ export const HoverContainer = styled<any>(Box)`
   justify-content: center;
   cursor: pointer;
   &:hover {
-    background-color: rgba(0, 0, 0, 0.1) !important;
+    background-color: var(--mantine-color-default-hover);
   }
 `;
 
-export const HoverContainerWithActiveBackground = styled(HoverContainer)<{$isActive?: boolean}>`
+export const HoverContainerWithActiveBackground = styled(HoverContainer)<{
+  $isActive?: boolean;
+}>`
   padding: 6px;
   border-radius: 5px;
   transition: 0.2s ease-in-out;
@@ -22,11 +24,14 @@ export const HoverContainerWithActiveBackground = styled(HoverContainer)<{$isAct
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  ${({$isActive}) => $isActive ? `
+  ${({ $isActive }) =>
+    $isActive
+      ? `
     background-color: var(--mantine-color-blue-filled) !important;
     color: var(--mantine-color-white);
-  ` : ''}
+  `
+      : ""}
   &:hover {
-    background-color: var(--mantine-color-gray-light-hover);
+    background-color: var(--mantine-color-default-hover);
   }
 `;

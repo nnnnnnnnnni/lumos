@@ -3,19 +3,22 @@ import {
   PropsWithChildren,
   createContext,
   useContext,
-  useMemo,
+  useEffect,
   useState,
 } from "react";
 import {
-  DEFAULT_SCREEN_DESKTOP,
+  CURRENT_SCREEN,
+  DEFAULT_SCREEN_FULL,
   DEFAULT_SCREEN_MOBILE,
   DEFAULT_SCREEN_TABLET,
-  convertAnyToNumber,
 } from "@utils";
+import { mediaKeys } from "./Settings/type";
 
 interface EditorContainerContextProps {
   width: string | number;
   setWidth: (width: string | number) => void;
+  currentScreen: CURRENT_SCREEN;
+  setCurrentScreen: (screen: CURRENT_SCREEN) => void;
   isTablet: boolean;
   isMobile: boolean;
   isDesktop: boolean;
@@ -27,29 +30,28 @@ export const useEditorContainer = () => useContext(EditorContainerContext);
 
 export const EditorContainerProvier: FC<PropsWithChildren> = ({ children }) => {
   const [state, setState] = useState<string | number>("100%");
+  const [currentScreen, setCurrentScreen] = useState<CURRENT_SCREEN>(mediaKeys.desktop);
 
-  const isTablet = useMemo(
-    () => convertAnyToNumber(state) == DEFAULT_SCREEN_TABLET,
-    []
-  );
-  const isMobile = useMemo(
-    () => convertAnyToNumber(state) == DEFAULT_SCREEN_MOBILE,
-    []
-  );
-  const isDesktop = useMemo(
-    () =>
-      state === "100%" || convertAnyToNumber(state) === DEFAULT_SCREEN_DESKTOP,
-    []
-  );
+  useEffect(() => {
+    if(currentScreen === mediaKeys.mobile) {
+      setState(DEFAULT_SCREEN_MOBILE)
+    } else if(currentScreen === mediaKeys.tablet) {
+      setState(DEFAULT_SCREEN_TABLET)
+    } else {
+      setState(DEFAULT_SCREEN_FULL)
+    }
+  }, [currentScreen])
 
   return (
     <EditorContainerContext.Provider
       value={{
         width: state,
         setWidth: setState,
-        isTablet,
-        isMobile,
-        isDesktop,
+        setCurrentScreen,
+        currentScreen,
+        isTablet: currentScreen === mediaKeys.tablet,
+        isMobile: currentScreen === mediaKeys.mobile,
+        isDesktop: currentScreen === mediaKeys.desktop,
       }}
     >
       {children}

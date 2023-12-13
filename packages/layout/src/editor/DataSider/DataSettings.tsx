@@ -1,10 +1,17 @@
-import { Box, Flex } from "@mantine/core";
+import { useEditor } from "@craftjs/core";
+import { Box, Button, Flex } from "@mantine/core";
+import { useCallback } from "react";
 
 export const DataSettings = () => {
+  const { query } = useEditor();
+
+  const handleSave = useCallback(() => {
+    console.log(query.getNodes())
+  }, [])
+
   return (
-    <Flex align={'center'} justify={'center'} direction={'column'} h={'100%'}>
-      <Box>DataSettings</Box>
-      <Box>Coming soon</Box>
-    </Flex>
+    <Box>
+      <Button onClick={handleSave}>Save</Button>
+    </Box>
   );
 };

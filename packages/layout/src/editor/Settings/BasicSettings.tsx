@@ -13,7 +13,6 @@ import {
   Divider,
 } from "@mantine/core";
 import {
-  CSSProperties,
   FC,
   PropsWithChildren,
   useCallback,
@@ -26,10 +25,8 @@ import {
   Bars3BottomRightIcon,
   Bars3Icon,
 } from "@heroicons/react/24/solid";
-import { useNode } from "@craftjs/core";
-import { convertAnyToNumber, convertAnyToPx } from "@utils"
-import { useEditorContainer } from "../WidthContext";
-import { mediaStylesProps } from "./type";
+import { convertAnyToNumber, convertAnyToPx } from "@utils";
+import { useChangeBasicSettings } from "./hooks";
 
 const SettingTitle: FC<PropsWithChildren> = (props) => {
   return (
@@ -40,10 +37,18 @@ const SettingTitle: FC<PropsWithChildren> = (props) => {
 };
 
 interface ArraySettingsProps {
-  value: string[];
-  onChange: (value: string[]) => void;
+  value: (string | undefined)[];
+  onChange: (value: (string | undefined)[]) => void;
 }
 const ArraySettings: FC<ArraySettingsProps> = ({ value, onChange }) => {
+  const handleChnage = useCallback(
+    (newValue: string | number, index: number) => {
+      const _value = [...value];
+      _value[index] = newValue.toString();
+      onChange(_value);
+    },
+    [value]
+  );
   return (
     <Flex
       gap={"xs"}
@@ -53,10 +58,34 @@ const ArraySettings: FC<ArraySettingsProps> = ({ value, onChange }) => {
       }}
       p={"xs"}
     >
-      <NumberInput min={0} description="Top" size="xs" />
-      <NumberInput min={0} description="Right" size="xs" />
-      <NumberInput min={0} description="Bottom" size="xs" />
-      <NumberInput min={0} description="Left" size="xs" />
+      <NumberInput
+        value={value[0]}
+        onChange={(value) => handleChnage(value, 0)}
+        min={0}
+        description="Top"
+        size="xs"
+      />
+      <NumberInput
+        value={value[1]}
+        onChange={(value) => handleChnage(value, 1)}
+        min={0}
+        description="Right"
+        size="xs"
+      />
+      <NumberInput
+        value={value[2]}
+        onChange={(value) => handleChnage(value, 2)}
+        min={0}
+        description="Bottom"
+        size="xs"
+      />
+      <NumberInput
+        value={value[3]}
+        onChange={(value) => handleChnage(value, 3)}
+        min={0}
+        description="Left"
+        size="xs"
+      />
     </Flex>
   );
 };
@@ -93,54 +122,136 @@ const VisibilitySetting = () => {
 };
 
 const MarginSetting = () => {
-  const [margins, setMargins] = useState<string[]>(["0", "0", "0", "0"]);
+  const { currentScreenStyle, handleSetPropByCsskey } =
+    useChangeBasicSettings();
+
+  const margins = useMemo(() => {
+    const left = convertAnyToNumber(
+      currentScreenStyle?.marginLeft,
+      false
+    )?.toString();
+    const right = convertAnyToNumber(
+      currentScreenStyle?.marginRight,
+      false
+    )?.toString();
+    const top = convertAnyToNumber(
+      currentScreenStyle?.marginTop,
+      false
+    )?.toString();
+    const bottom = convertAnyToNumber(
+      currentScreenStyle?.marginBottom,
+      false
+    )?.toString();
+
+    return [top, right, bottom, left];
+  }, [currentScreenStyle]);
+
+  const handleChange = useCallback(
+    (value: (string | undefined)[]) => {
+      if (currentScreenStyle?.marginTop !== value[0] && value[0] != undefined) {
+        handleSetPropByCsskey("marginTop", convertAnyToPx(value[0]));
+      }
+      if (
+        currentScreenStyle?.marginBottom !== value[2] &&
+        value[2] != undefined
+      ) {
+        handleSetPropByCsskey("marginBottom", convertAnyToPx(value[2]));
+      }
+      if (
+        currentScreenStyle?.marginRight !== value[1] &&
+        value[1] != undefined
+      ) {
+        handleSetPropByCsskey("marginRight", convertAnyToPx(value[1]));
+      }
+      if (
+        currentScreenStyle?.marginLeft !== value[3] &&
+        value[3] != undefined
+      ) {
+        handleSetPropByCsskey("marginLeft", convertAnyToPx(value[3]));
+      }
+    },
+    [currentScreenStyle, handleSetPropByCsskey]
+  );
   return (
     <Box>
       <SettingTitle>Margin</SettingTitle>
-      <ArraySettings value={margins} onChange={setMargins} />
+      <ArraySettings
+        value={margins}
+        onChange={(value) => handleChange(value)}
+      />
     </Box>
   );
 };
 
 const PaddingSetting = () => {
-  const [PaddingSetting, setPaddings] = useState<string[]>([
-    "0",
-    "0",
-    "0",
-    "0",
-  ]);
+  const { currentScreenStyle, handleSetPropByCsskey } =
+    useChangeBasicSettings();
+
+  const paddings = useMemo(() => {
+    const left = convertAnyToNumber(
+      currentScreenStyle?.paddingLeft,
+      false
+    )?.toString();
+    const right = convertAnyToNumber(
+      currentScreenStyle?.paddingRight,
+      false
+    )?.toString();
+    const top = convertAnyToNumber(
+      currentScreenStyle?.paddingTop,
+      false
+    )?.toString();
+    const bottom = convertAnyToNumber(
+      currentScreenStyle?.paddingBottom,
+      false
+    )?.toString();
+
+    return [top, right, bottom, left];
+  }, [currentScreenStyle]);
+
+  const handleChange = useCallback(
+    (value: (string | undefined)[]) => {
+      if (
+        currentScreenStyle?.paddingTop !== value[0] &&
+        value[0] != undefined
+      ) {
+        handleSetPropByCsskey("paddingTop", convertAnyToPx(value[0]));
+      }
+      if (
+        currentScreenStyle?.paddingBottom !== value[2] &&
+        value[2] != undefined
+      ) {
+        handleSetPropByCsskey("paddingBottom", convertAnyToPx(value[2]));
+      }
+      if (
+        currentScreenStyle?.paddingRight !== value[1] &&
+        value[1] != undefined
+      ) {
+        handleSetPropByCsskey("paddingRight", convertAnyToPx(value[1]));
+      }
+      if (
+        currentScreenStyle?.paddingLeft !== value[3] &&
+        value[3] != undefined
+      ) {
+        handleSetPropByCsskey("paddingLeft", convertAnyToPx(value[3]));
+      }
+    },
+    [currentScreenStyle, handleSetPropByCsskey]
+  );
+
   return (
     <Box>
       <SettingTitle>Padding</SettingTitle>
-      <ArraySettings value={PaddingSetting} onChange={setPaddings} />
+      <ArraySettings
+        value={paddings}
+        onChange={(value) => handleChange(value)}
+      />
     </Box>
   );
 };
 
 const TypographySetting = () => {
-  const { isDesktop, isMobile, isTablet } = useEditorContainer();
-  const mediaKey = useMemo(
-    () => (isDesktop ? "desktop" : isTablet ? "tablet" : "mobile"),
-    [isMobile, isDesktop, isMobile]
-  );
-  const {
-    actions: { setProp },
-    styleProps,
-  } = useNode((node) => ({
-    styleProps: node.data.props,
-  }));
-
-  const handleSetPropByCsskey = useCallback(
-    (cssKey: keyof CSSProperties, value: any) => {
-      setProp((props: { styles?: mediaStylesProps }) => {
-        props.styles = props.styles || {};
-        props.styles[mediaKey] = props.styles[mediaKey] || {};
-        props.styles[mediaKey][cssKey] = value;
-      });
-    },
-    []
-  );
-
+  const { currentScreenStyle, handleSetPropByCsskey } =
+    useChangeBasicSettings();
   return (
     <Box>
       <SettingTitle>Typography</SettingTitle>
@@ -155,7 +266,7 @@ const TypographySetting = () => {
         <ColorInput
           description="Text Color"
           size="xs"
-          value={styleProps?.color}
+          value={currentScreenStyle?.color}
           onChange={(value) => handleSetPropByCsskey("color", value)}
         />
         <Flex gap={"xs"}>
@@ -163,12 +274,9 @@ const TypographySetting = () => {
             description="Font Size"
             min={0}
             size="xs"
-            value={convertAnyToNumber(styleProps?.fontSize?.toString())}
+            value={convertAnyToNumber(currentScreenStyle?.fontSize?.toString())}
             onChange={(value) =>
-              handleSetPropByCsskey(
-                "fontSize",
-                convertAnyToPx(value as number)
-              )
+              handleSetPropByCsskey("fontSize", convertAnyToPx(value as number))
             }
           />
           <Select
@@ -186,10 +294,8 @@ const TypographySetting = () => {
               "900",
             ]}
             value={
-              styleProps?.fontWeight?.toString()
-                ? convertAnyToNumber(
-                    parseInt(styleProps?.fontWeight?.toString(), 10)
-                  ).toString()
+              currentScreenStyle?.fontWeight?.toString()
+                ? currentScreenStyle?.fontWeight?.toString()
                 : undefined
             }
             onChange={(value) => handleSetPropByCsskey("fontWeight", value)}
@@ -200,7 +306,9 @@ const TypographySetting = () => {
             description="Line Height"
             min={0}
             size="xs"
-            value={convertAnyToNumber(styleProps?.lineHeight?.toString())}
+            value={convertAnyToNumber(
+              currentScreenStyle?.lineHeight?.toString()
+            )}
             onChange={(value) =>
               handleSetPropByCsskey(
                 "lineHeight",
@@ -212,7 +320,9 @@ const TypographySetting = () => {
             description="Char Space"
             min={0}
             size="xs"
-            value={convertAnyToNumber(styleProps?.letterSpacing?.toString())}
+            value={convertAnyToNumber(
+              currentScreenStyle?.letterSpacing?.toString()
+            )}
             onChange={(value) =>
               handleSetPropByCsskey(
                 "letterSpacing",

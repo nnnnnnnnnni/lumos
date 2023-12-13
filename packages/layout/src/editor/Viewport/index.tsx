@@ -9,7 +9,10 @@ import { Flex } from "@mantine/core";
 import { useEditorContainer } from "../WidthContext";
 import { convertAnyToPx } from "@utils";
 
-const RenderContainer = styled.div<{ $enabled: boolean, $width?: string | number }>`
+const RenderContainer = styled.div<{
+  $enabled: boolean;
+  $width?: string | number;
+}>`
   flex: 1;
   height: 100%;
   width: ${({ $width }) => $width || "100%"};
@@ -17,7 +20,7 @@ const RenderContainer = styled.div<{ $enabled: boolean, $width?: string | number
   overflow: auto;
   padding-bottom: 8px;
   margin: 0 auto;
-  ${({ $enabled }) => ($enabled ? "background-color: #f7f7f7;" : "")}
+  ${({ $enabled }) => ($enabled ? "background-color: white;" : "")}
 `;
 
 export const Viewport: React.FC<{ children?: React.ReactNode }> = ({
@@ -25,7 +28,6 @@ export const Viewport: React.FC<{ children?: React.ReactNode }> = ({
 }) => {
   const {
     enabled,
-    connectors,
     actions: { setOptions },
   } = useEditor((state) => ({
     enabled: state.options.enabled,
@@ -55,11 +57,15 @@ export const Viewport: React.FC<{ children?: React.ReactNode }> = ({
     >
       <ListWrapper />
       <Flex
-        style={{ flex: 1, border: '1px solid #f7f7f7', borderTop: 'none', borderBottom: 'none' }}
+        style={{
+          flex: 1,
+          borderLeft: "1px solid #f0f0f0",
+          borderRight: "1px solid #f0f0f0",
+        }}
+        bg={'#f0f0f0'}
         h={"100%"}
         direction={"column"}
         className="page-container"
-        
       >
         <Header />
         <RenderContainer

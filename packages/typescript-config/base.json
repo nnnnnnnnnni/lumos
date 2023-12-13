@@ -15,6 +15,13 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "ES2022"
+    "target": "ES2022",
+    "baseUrl": "../",
+    "paths": {
+      "@utils/*": ["utils/src/*"],
+      "@utils": ["utils/src/index.ts"],
+      "@libs/*": ["libs/src/*"],
+      "@libs": ["libs/src/index.ts"],
+    }
   }
 }

@@ -9,29 +9,25 @@ import {
   DevicePhoneMobileIcon,
   DeviceTabletIcon,
 } from "@heroicons/react/20/solid";
-import { HoverContainer, HoverContainerWithActiveBackground } from "../../components/common";
+import {
+  HoverContainer,
+  HoverContainerWithActiveBackground,
+} from "../../components/common";
 import { useCallback } from "react";
-import { DEFAULT_SCREEN_MOBILE, DEFAULT_SCREEN_TABLET } from "@utils"
+import { DEFAULT_SCREEN_MOBILE, DEFAULT_SCREEN_TABLET } from "@utils";
 import { useEditorContainer } from "../WidthContext";
+import { mediaKeys } from "../Settings/type";
 
 export const Header = () => {
-  const { width, setWidth } = useEditorContainer();
-  const { enabled, canUndo, canRedo, actions } = useEditor(
-    (state, query) => ({
-      enabled: state.options.enabled,
-      canUndo: query.history.canUndo(),
-      canRedo: query.history.canRedo(),
-    })
-  );
+  const { isMobile, isDesktop, isTablet, setCurrentScreen } = useEditorContainer();
+  const { enabled, canUndo, canRedo, actions } = useEditor((state, query) => ({
+    enabled: state.options.enabled,
+    canUndo: query.history.canUndo(),
+    canRedo: query.history.canRedo(),
+  }));
 
-  const handleSwitch = useCallback((mode: number) => {
-    if(mode === 1) {
-      setWidth("100%");
-    } else if(mode === 2) {
-      setWidth(DEFAULT_SCREEN_TABLET);
-    } else {
-      setWidth(DEFAULT_SCREEN_MOBILE);
-    }
+  const handleSwitch = useCallback((mode: mediaKeys) => {
+    setCurrentScreen(mode);
   }, []);
 
   return (
@@ -77,13 +73,22 @@ export const Header = () => {
         align={"center"}
         style={{ flex: 1 }}
       >
-        <HoverContainerWithActiveBackground onClick={() => handleSwitch(1)} $isActive={width === '100%'}>
+        <HoverContainerWithActiveBackground
+          onClick={() => handleSwitch(mediaKeys.desktop)}
+          $isActive={isDesktop}
+        >
           <ComputerDesktopIcon width={16} />
         </HoverContainerWithActiveBackground>
-        <HoverContainerWithActiveBackground onClick={() => handleSwitch(2)} $isActive={width === DEFAULT_SCREEN_TABLET}>
+        <HoverContainerWithActiveBackground
+          onClick={() => handleSwitch(mediaKeys.tablet)}
+          $isActive={isTablet}
+        >
           <DeviceTabletIcon width={16} />
         </HoverContainerWithActiveBackground>
-        <HoverContainerWithActiveBackground onClick={() => handleSwitch(3)} $isActive={width === DEFAULT_SCREEN_MOBILE}>
+        <HoverContainerWithActiveBackground
+          onClick={() => handleSwitch(mediaKeys.mobile)}
+          $isActive={isMobile}
+        >
           <DevicePhoneMobileIcon width={16} />
         </HoverContainerWithActiveBackground>
       </Flex>

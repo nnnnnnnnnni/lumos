@@ -1,58 +1,34 @@
 import { UserComponent, useNode } from "@craftjs/core";
-import { TextProps, Text as _Text } from "@libs"
+import { TextProps, Text as _Text } from "@libs";
 import { craftProps } from "./setting";
-import styled from "styled-components";
-import { mediaStylesProps } from "../../../../editor/Settings/type";
-import { CSSProperties } from "react";
-import { DEFAULT_SCREEN_DESKTOP, DEFAULT_SCREEN_MOBILE, DEFAULT_SCREEN_TABLET } from "@utils";
+import { useMemo } from "react";
+import { useEditorContainer } from "../../../../editor/WidthContext";
+import { mediaKeys, mediaStyles } from "../../../../editor/Settings/type";
+import { omit } from "lodash";
 
-const TextDom = styled(_Text)<TextProps & mediaStylesProps>`
-  @media (min-width: ${DEFAULT_SCREEN_DESKTOP}px) {
-    ${(props) => {
-      let str = '';
-      const styles = props.styles?.desktop || {};
-      Object.keys(styles).forEach((key) => {
-        const value = styles[key as keyof CSSProperties];
-        str += `${key}: ${value};`
-      })
-
-      return str;
-    }}
-  };
-  @media (min-width: ${DEFAULT_SCREEN_TABLET}px) {
-    ${(props) => {
-      let str = '';
-      const styles = props.styles?.tablet || {};
-      Object.keys(styles).forEach((key) => {
-        const value = styles[key as keyof CSSProperties];
-        str += `${key}: ${value};`
-      })
-
-      return str;
-    }}
-  };
-  @media (min-width: ${DEFAULT_SCREEN_MOBILE}px) {
-    ${(props) => {
-      let str = '';
-      const styles = props.styles?.mobile || {};
-      Object.keys(styles).forEach((key) => {
-        const value = styles[key as keyof CSSProperties];
-        str += `${key}: ${value};`
-      })
-
-      return str;
-    }}
-  }
-`
-
-export const Text: UserComponent<TextProps> = (props) => {
+export const Text: UserComponent<TextProps & mediaStyles> = (props) => {
+  const { currentScreen, isDesktop, isMobile, isTablet } = useEditorContainer();
   const {
     connectors: { connect, drag },
   } = useNode((node) => ({
     selected: node.events.selected,
   }));
 
-  return <TextDom ref={(ref) => ref && connect(drag(ref))} {...props} />;
+  const _props = useMemo(() => {
+    const _props = Object.assign({}, props);
+
+    if (isTablet) {
+      _props.style = Object.assign({}, props.styles?.[mediaKeys.tablet] || {});
+    } else if (isMobile) {
+      _props.style = Object.assign({}, props.styles?.[mediaKeys.mobile] || {});
+    } else {
+      _props.style = Object.assign({}, props.styles?.[mediaKeys.desktop] || {});
+    }
+
+    return omit(_props, ["styles"]);
+  }, [props.styles, currentScreen]);
+
+  return <_Text ref={(ref) => ref && connect(drag(ref))} {..._props} />;
 };
 
-Text.craft = craftProps
+Text.craft = craftProps;
