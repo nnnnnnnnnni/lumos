@@ -1,8 +1,4 @@
 import { useNode, useEditor } from '@craftjs/core';
-import { ROOT_NODE } from '@craftjs/utils';
-import { ArrowUpIcon, ArrowsPointingInIcon, TrashIcon } from '@heroicons/react/24/outline';
-import React, { useEffect, useRef, useCallback, createElement } from 'react';
-import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
 const IndicatorDiv = styled.div`

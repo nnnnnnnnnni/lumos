@@ -1,8 +1,5 @@
 import { UserComponent, useNode } from "@craftjs/core";
-import {
-  Img as _Image,
-} from "../../../../../../libs/src/Basic";
-
+import { Img as _Image } from "@libs";
 
 export const Image: UserComponent<{}> = () => {
   const {

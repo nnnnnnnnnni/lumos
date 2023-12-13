@@ -4,5 +4,12 @@
   "extends": "./base.json",
   "compilerOptions": {
     "jsx": "react-jsx",
+    "baseUrl": "../",
+    "paths": {
+      "@utils/*": ["utils/*"],
+      "@utils": ["utils/src/index.ts"],
+      "@libs/*": ["libs/*"],
+      "@libs": ["libs/src/index.ts"],
+    }
   }
 }

@@ -1,9 +1,9 @@
 import { RectangleGroupIcon } from "@heroicons/react/24/outline";
 import { Text, Box, Section, Video, Image } from "../components/injects";
 import { ReactNode } from "react";
-import { UserComponent } from "@craftjs/core";
+import { Options, UserComponent } from "@craftjs/core";
 
-export const componentList = {
+export const componentList: Options['resolver'] = {
   Section,
   Box,
   Text,

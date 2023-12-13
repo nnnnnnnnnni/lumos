@@ -5,15 +5,13 @@ import {
   ArrowUturnRightIcon,
   CheckIcon,
   PencilIcon,
-} from "@heroicons/react/20/solid";
-import { HoverContainer, HoverContainerWithActiveBackground } from "../../components/common";
-import {
   ComputerDesktopIcon,
   DevicePhoneMobileIcon,
   DeviceTabletIcon,
-} from "@heroicons/react/24/outline";
+} from "@heroicons/react/20/solid";
+import { HoverContainer, HoverContainerWithActiveBackground } from "../../components/common";
 import { useCallback } from "react";
-import { DEFAULT_SCREEN_MOBILE, DEFAULT_SCREEN_TABLET, getPX } from "../../../../libs/src/config";
+import { DEFAULT_SCREEN_MOBILE, DEFAULT_SCREEN_TABLET } from "@utils"
 import { useEditorContainer } from "../WidthContext";
 
 export const Header = () => {

@@ -1,5 +1,5 @@
 import { UserComponent, useNode } from "@craftjs/core";
-import { Video as _Video } from "../../../../../../libs/src/Basic";
+import { Video as _Video } from "@libs";
 
 export const Video: UserComponent<{}> = () => {
   const {

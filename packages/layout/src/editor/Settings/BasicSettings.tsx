@@ -17,6 +17,7 @@ import {
   FC,
   PropsWithChildren,
   useCallback,
+  useMemo,
   useRef,
   useState,
 } from "react";
@@ -26,7 +27,9 @@ import {
   Bars3Icon,
 } from "@heroicons/react/24/solid";
 import { useNode } from "@craftjs/core";
-import { convertAnyToNumber, convertNumberToPx } from "../../../../utils/src";
+import { convertAnyToNumber, convertAnyToPx } from "@utils"
+import { useEditorContainer } from "../WidthContext";
+import { mediaStylesProps } from "./type";
 
 const SettingTitle: FC<PropsWithChildren> = (props) => {
   return (
@@ -115,18 +118,24 @@ const PaddingSetting = () => {
 };
 
 const TypographySetting = () => {
+  const { isDesktop, isMobile, isTablet } = useEditorContainer();
+  const mediaKey = useMemo(
+    () => (isDesktop ? "desktop" : isTablet ? "tablet" : "mobile"),
+    [isMobile, isDesktop, isMobile]
+  );
   const {
     actions: { setProp },
     styleProps,
   } = useNode((node) => ({
-    styleProps: node.data.props["style"] as CSSProperties,
+    styleProps: node.data.props,
   }));
 
   const handleSetPropByCsskey = useCallback(
-    (key: keyof CSSProperties, value: any) => {
-      setProp((props: { style?: any }) => {
-        props.style = props.style || {};
-        props.style[key] = value;
+    (cssKey: keyof CSSProperties, value: any) => {
+      setProp((props: { styles?: mediaStylesProps }) => {
+        props.styles = props.styles || {};
+        props.styles[mediaKey] = props.styles[mediaKey] || {};
+        props.styles[mediaKey][cssKey] = value;
       });
     },
     []
@@ -158,7 +167,7 @@ const TypographySetting = () => {
             onChange={(value) =>
               handleSetPropByCsskey(
                 "fontSize",
-                convertNumberToPx(value as number)
+                convertAnyToPx(value as number)
               )
             }
           />
@@ -176,10 +185,14 @@ const TypographySetting = () => {
               "800",
               "900",
             ]}
-            value={styleProps?.fontWeight?.toString() ?convertAnyToNumber(
-              parseInt(styleProps?.fontWeight?.toString(), 10)
-            ).toString() : undefined}
-            onChange={(value) => handleSetPropByCsskey('fontWeight', value)}
+            value={
+              styleProps?.fontWeight?.toString()
+                ? convertAnyToNumber(
+                    parseInt(styleProps?.fontWeight?.toString(), 10)
+                  ).toString()
+                : undefined
+            }
+            onChange={(value) => handleSetPropByCsskey("fontWeight", value)}
           />
         </Flex>
         <Flex gap={"xs"}>
@@ -191,7 +204,7 @@ const TypographySetting = () => {
             onChange={(value) =>
               handleSetPropByCsskey(
                 "lineHeight",
-                convertNumberToPx(value as number)
+                convertAnyToPx(value as number)
               )
             }
           />
@@ -203,7 +216,7 @@ const TypographySetting = () => {
             onChange={(value) =>
               handleSetPropByCsskey(
                 "letterSpacing",
-                convertNumberToPx(value as number)
+                convertAnyToPx(value as number)
               )
             }
           />

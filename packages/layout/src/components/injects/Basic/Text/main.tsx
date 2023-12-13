@@ -1,10 +1,10 @@
 import { UserComponent, useNode } from "@craftjs/core";
-import { TextProps, Text as _Text } from "../../../../../../libs/src/Basic";
+import { TextProps, Text as _Text } from "@libs"
 import { craftProps } from "./setting";
 import styled from "styled-components";
 import { mediaStylesProps } from "../../../../editor/Settings/type";
 import { CSSProperties } from "react";
-import { DEFAULT_SCREEN_DESKTOP, DEFAULT_SCREEN_MOBILE, DEFAULT_SCREEN_TABLET } from "../../../../../../libs/src/config";
+import { DEFAULT_SCREEN_DESKTOP, DEFAULT_SCREEN_MOBILE, DEFAULT_SCREEN_TABLET } from "@utils";
 
 const TextDom = styled(_Text)<TextProps & mediaStylesProps>`
   @media (min-width: ${DEFAULT_SCREEN_DESKTOP}px) {

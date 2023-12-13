@@ -1,5 +1,5 @@
 import { UserComponent, useNode, Element } from "@craftjs/core";
-import { SectionProps, Section as _Section } from "../../../../../../libs/src/Basic";
+import { SectionProps, Section as _Section } from "@libs";
 import { craftProps } from "./setting";
 import { Fragment } from "react";
 

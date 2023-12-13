@@ -7,7 +7,7 @@ import { ListWrapper } from "../ToolList";
 import { Header } from "./Header";
 import { Flex } from "@mantine/core";
 import { useEditorContainer } from "../WidthContext";
-import { getPX } from "../../../../libs/src/config";
+import { convertAnyToPx } from "@utils";
 
 const RenderContainer = styled.div<{ $enabled: boolean, $width?: string | number }>`
   flex: 1;
@@ -66,7 +66,7 @@ export const Viewport: React.FC<{ children?: React.ReactNode }> = ({
           $enabled={enabled}
           className="craftjs-renderer"
           id="app-container"
-          $width={getPX(width)}
+          $width={convertAnyToPx(width)}
         >
           {children}
         </RenderContainer>

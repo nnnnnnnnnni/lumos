@@ -1,5 +1,5 @@
 import { UserComponent } from "@craftjs/core";
-import { TextProps } from "../../../../../../libs/src/Basic";
+import { TextProps } from '@libs'
 import { ComponentSettings } from "../../../../editor/Settings";
 
 export const craftProps: UserComponent<TextProps>["craft"] = {

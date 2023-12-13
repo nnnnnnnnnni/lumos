@@ -1,5 +1,5 @@
 import { UserComponent, useNode, Element } from "@craftjs/core";
-import { Box as _Box } from "../../../../../../libs/src/Basic";
+import { Box as _Box } from "@libs";
 
 export const Box: UserComponent<{}> = () => {
   const {
