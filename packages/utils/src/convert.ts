@@ -43,3 +43,10 @@ export const convertAnyToNumber = (value?: any, returnZero = true): number | und
   // 如果无法匹配到数字和单位，则返回原始值
   return value;
 };
+
+
+export const isNumber = (value: string) => {
+  const regex = new RegExp(/^-?\d+(\.\d+)?$/);
+
+  return regex.test(value);
+}
