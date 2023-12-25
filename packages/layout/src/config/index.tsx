@@ -1,5 +1,5 @@
 import { RectangleGroupIcon } from "@heroicons/react/24/outline";
-import { Text, Box, Section, Video, Image } from "../components/injects";
+import { Text, Box, Section, Video, Image, CommonBanner, ApplyButton } from "../components/injects";
 import { ReactNode } from "react";
 import { Options, UserComponent } from "@craftjs/core";
 
@@ -9,6 +9,8 @@ export const componentList: Options['resolver'] = {
   Text,
   Video,
   Image,
+  CommonBanner,
+  ApplyButton
 };
 
 export type componentGroupProps = {
@@ -48,6 +50,26 @@ export const componentGroup: componentGroupProps[] = [
         name: "Image",
         icon: <RectangleGroupIcon width={20} />,
         component: Image,
+      },
+    ],
+  },
+  {
+    name: "Banners",
+    group: [
+      {
+        name: "Common Banner",
+        icon: <RectangleGroupIcon width={20} />,
+        component: CommonBanner,
+      },
+    ],
+  },
+  {
+    name: "Button",
+    group: [
+      {
+        name: "Apply Banner",
+        icon: <RectangleGroupIcon width={20} />,
+        component: ApplyButton,
       },
     ],
   },
