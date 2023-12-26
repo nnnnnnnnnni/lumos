@@ -2,7 +2,6 @@ import "./globals.css";
 import type { Metadata } from "next";
 import React from "react";
 import { MantineProvider, ColorSchemeScript } from "@mantine/core";
-import { theme } from "../theme";
 
 export const metadata: Metadata = {
   title: "Create Turborepo",
@@ -21,7 +20,7 @@ export default function RootLayout({ children }: { children: any }) {
         />
       </head>
       <body>
-        <MantineProvider theme={theme}>{children}</MantineProvider>
+        <MantineProvider >{children}</MantineProvider>
       </body>
     </html>
   );
