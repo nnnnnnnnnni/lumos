@@ -1,19 +1,12 @@
 "use client";
 import { Editor, Frame, Element, useEditor } from "@craftjs/core";
 import { Viewport } from "../../editor/Viewport";
-import { Flex } from "@mantine/core";
+import { Box, Flex } from "@mantine/core";
 import { componentList } from "../../config";
 import { Fragment, useMemo } from "react";
 import { EditorContainerProvier } from "../../editor/WidthContext";
 
 const EditableArea = () => {
-  const { query } = useEditor();
-
-  const haveNodes = useMemo(() => {
-    const nodes = query.getNodes();
-    return Object.keys(nodes).length > 1;
-  }, []);
-
   return (
     <Viewport>
       <Frame>
@@ -29,7 +22,6 @@ const EditableArea = () => {
             flexDirection: "column",
           }}
         >
-          {!haveNodes && "Drag components here"}
         </Element>
       </Frame>
     </Viewport>

@@ -1,5 +1,5 @@
 import { useEditor } from "@craftjs/core";
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import styled from "styled-components";
 
 import { Sidebar } from "../DataSider";
@@ -20,6 +20,7 @@ const RenderContainer = styled.div<{
   overflow: auto;
   padding-bottom: 8px;
   margin: 0 auto;
+  position: relative;
   ${({ $enabled }) => ($enabled ? "background-color: white;" : "")}
 `;
 
@@ -29,8 +30,10 @@ export const Viewport: React.FC<{ children?: React.ReactNode }> = ({
   const {
     enabled,
     actions: { setOptions },
-  } = useEditor((state) => ({
+    nodes
+  } = useEditor((state, query) => ({
     enabled: state.options.enabled,
+    nodes: query.getNodes()
   }));
   const { width } = useEditorContainer();
 
@@ -47,6 +50,13 @@ export const Viewport: React.FC<{ children?: React.ReactNode }> = ({
       }, 200);
     });
   }, [setOptions]);
+
+  const isEmptyContainer = useMemo(() => {
+    return Object.keys(nodes).length == 1;
+  }, [nodes])
+
+  console.log()
+
   return (
     <Flex
       direction={"row"}
@@ -62,7 +72,7 @@ export const Viewport: React.FC<{ children?: React.ReactNode }> = ({
           borderLeft: "1px solid #f0f0f0",
           borderRight: "1px solid #f0f0f0",
         }}
-        bg={'#f0f0f0'}
+        bg={"#f0f0f0"}
         h={"100%"}
         direction={"column"}
         className="page-container"
@@ -75,6 +85,21 @@ export const Viewport: React.FC<{ children?: React.ReactNode }> = ({
           $width={convertAnyToPx(width)}
         >
           {children}
+
+          {!isEmptyContainer && (
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                background: "rgba(24, 139, 230, 0.05)",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              Drag components here
+            </div>
+          )}
         </RenderContainer>
       </Flex>
       <Sidebar />

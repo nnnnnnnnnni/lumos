@@ -1,5 +1,5 @@
-import { useEditor, useNode } from "@craftjs/core";
-import { Box, Button, Flex, Tooltip } from "@mantine/core";
+import { useEditor } from "@craftjs/core";
+import { Box, Button, Flex, Tooltip, Text } from "@mantine/core";
 import {
   ArrowUturnLeftIcon,
   ArrowUturnRightIcon,
@@ -14,13 +14,14 @@ import {
   HoverContainerWithActiveBackground,
 } from "../../components/common";
 import { useCallback } from "react";
-import { DEFAULT_SCREEN_MOBILE, DEFAULT_SCREEN_TABLET } from "@utils";
 import { useEditorContainer } from "../WidthContext";
 import { mediaKeys } from "../Settings/type";
+import { ArchiveBoxArrowDownIcon } from "@heroicons/react/24/outline";
 
 export const Header = () => {
-  const { isMobile, isDesktop, isTablet, setCurrentScreen } = useEditorContainer();
-  const { enabled, canUndo, canRedo, actions } = useEditor((state, query) => ({
+  const { isMobile, isDesktop, isTablet, setCurrentScreen } =
+    useEditorContainer();
+  const { enabled, canUndo, canRedo, actions, query } = useEditor((state, query) => ({
     enabled: state.options.enabled,
     canUndo: query.history.canUndo(),
     canRedo: query.history.canRedo(),
@@ -92,7 +93,19 @@ export const Header = () => {
           <DevicePhoneMobileIcon width={16} />
         </HoverContainerWithActiveBackground>
       </Flex>
-      <Flex w={"200px"} justify={"flex-end"}>
+      <Flex justify={"flex-end"} gap={"sm"}>
+        <Button
+          size="xs"
+          onClick={() => {
+            console.log(query.getNodes())
+          }}
+          variant="filled"
+        >
+          <ArchiveBoxArrowDownIcon width={16} />
+          <Text fz={"xs"} fw={"bold"} pl={"sm"}>
+            Export Json
+          </Text>
+        </Button>
         <Button
           size="xs"
           onClick={() => {
@@ -102,7 +115,9 @@ export const Header = () => {
           color={enabled ? "green" : undefined}
         >
           {enabled ? <CheckIcon width={16} /> : <PencilIcon width={16} />}
-          {enabled ? "View Current" : "Edit"}
+          <Text fz={"xs"} fw={"bold"} pl={"sm"}>
+            {enabled ? "View Current" : "Edit"}
+          </Text>
         </Button>
       </Flex>
     </Flex>
